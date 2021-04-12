@@ -65,7 +65,7 @@ public class AggController {
         });
     }
 
-    private <E extends Throwable> void useStatement(ThrowableConsumer<ClickHouseStatement> consumer) {
+    private void useStatement(ThrowableConsumer<ClickHouseStatement> consumer) {
         try (ClickHouseConnection conn = chDataSource.getConnection();
              ClickHouseStatement stmt = conn.createStatement()) {
             consumer.accept(stmt);
