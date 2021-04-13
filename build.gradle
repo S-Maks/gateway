@@ -41,3 +41,9 @@ dependencies {
 test {
     useJUnitPlatform()
 }
+
+task version {
+    doLast {
+        logger.lifecycle(project.version.replace("-SNAPSHOT","") as String)
+    }
+}
