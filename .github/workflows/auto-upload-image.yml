@@ -12,6 +12,7 @@ jobs:
     env:
       USERNAME: smaks
       IMAGE_NAME: gateway
+      VERSION: $(./gradlew version -q)
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
@@ -27,11 +28,11 @@ jobs:
       - name: Login to DockerHub
         uses: docker/login-action@v1
         with:
-          username: smaks
+          username: $USERNAME
           password: '${{secrets.DOCKERHUB_PASSWORD}}'
       - name: Build and push
         id: docker_build
         uses: docker/build-push-action@v2
         with:
           push: true
-          tags: smaks/test:$(./gradlew version -q)
+          tags: smaks/test:$VERSION
