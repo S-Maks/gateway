@@ -24,11 +24,8 @@ jobs:
         run: chmod +x gradlew
       - name: Build with Gradle
         run: ./gradlew build
-      - name: Login to DockerHub
-        uses: docker/login-action@v1
-        with:
-          username: '$USERNAME'
-          password: '${{secrets.DOCKERHUB_PASSWORD}}'
+      - name: Authorization Docker
+        run: docker login -u $USERNAME -p '${{secrets.DOCKERHUB_PASSWORD}}'
 
       - name: Build and push
         id: docker_build
