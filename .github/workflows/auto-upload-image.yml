@@ -10,7 +10,7 @@ on:
 jobs:
   build:
     env:
-      USERNAME: lansoftdev
+      USERNAME: smaks
       IMAGE_NAME: gateway
     runs-on: ubuntu-latest
     steps:
