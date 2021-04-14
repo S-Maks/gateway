@@ -24,9 +24,9 @@ jobs:
         run: chmod +x gradlew
       - name: Build with Gradle
         run: ./gradlew build
-      - name: Authorization Docker
-        run: docker login -u $USERNAME -p '${{secrets.DOCKERHUB_PASSWORD}}'
       - name: Build image
         run: docker build -t $USERNAME/$IMAGE_NAME:$(./gradlew version -q) .
+      - name: Authorization Docker Hub
+        run: docker login -u $USERNAME -p '${{secrets.DOCKERHUB_PASSWORD}}'
       - name: Push image
         run: docker push $USERNAME/$IMAGE_NAME:$(./gradlew version -q)
