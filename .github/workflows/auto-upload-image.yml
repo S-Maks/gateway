@@ -29,7 +29,9 @@ jobs:
         with:
           username: smaks
           password: '${{secrets.DOCKERHUB_PASSWORD}}'
-      - name: show username
-        run: echo $USERNAME
-      - name: show IMAGE_NAME
-        run: echo $IMAGE_NAME
+      - name: Build and push
+        id: docker_build
+        uses: docker/build-push-action@v2
+        with:
+          push: true
+          tags: smaks/test:$(./gradlew version -q)
