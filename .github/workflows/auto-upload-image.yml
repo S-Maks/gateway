@@ -40,4 +40,5 @@ jobs:
         with:
           context: .
           push: true
-          tags: "${{env.USERNAME}}/${{env.IMAGE_NAME}}:$env.VERSION"
+          repository: "${{env.USERNAME}}/${{env.IMAGE_NAME}}:"
+          tags: "$(.gradlew version -q)"
