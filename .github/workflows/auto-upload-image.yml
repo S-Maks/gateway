@@ -25,7 +25,7 @@ jobs:
       - name: Build with Gradle
         run: ./gradlew build
       - name: show version
-        run: VERSION=`./gradlew version -q`
+        run: VERSION='5'
       - name: Version
         run: echo "$VERSION"
       - name: Login to DockerHub
