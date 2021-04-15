@@ -5,6 +5,7 @@ name: Java CI with Gradle
 
 on:
   repository_dispatch:
+    types: [opened, deleted]
 
 jobs:
   build:
