@@ -31,7 +31,7 @@ jobs:
       - name: Login to DockerHub
         uses: docker/login-action@v1
         with:
-          username: test
+          username: '${{env.USERNAME}}'
           password: '${{secrets.DOCKERHUB_PASSWORD}}'
       - name: Build and push
         id: docker_build
