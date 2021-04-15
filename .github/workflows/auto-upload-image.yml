@@ -41,4 +41,4 @@ jobs:
           context: .
           push: true
           repository: "${{env.USERNAME}}/${{env.IMAGE_NAME}}:"
-          tags: "$(.gradlew version -q)"
+          tags: "0.0.1"
