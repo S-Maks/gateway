@@ -4,8 +4,8 @@
 name: Java-CI-for-auto-upload-docker-image
 
 on:
-  push:
-    branches: [ main ]
+  #push:
+  #  branches: [ main ]
 
 jobs:
   build:
