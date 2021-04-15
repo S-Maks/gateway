@@ -31,11 +31,11 @@ jobs:
       - name: Login to DockerHub
         uses: docker/login-action@v1
         with:
-          username: ${env.USERNAME}
+          username: ${{env.USERNAME}}
           password: '${{secrets.DOCKERHUB_PASSWORD}}'
       - name: Build and push
         id: docker_build
         uses: docker/build-push-action@v2
         with:
           push: true
-          tags: ${{env.USERNAME}}/${{env.IMAGE_NAME}}:0.0.1
+          tags: '${{env.USERNAME}}'/'${{env.IMAGE_NAME}}':0.0.1
