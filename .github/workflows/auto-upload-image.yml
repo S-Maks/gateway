@@ -12,7 +12,7 @@ jobs:
     env:
       USERNAME: smaks
       IMAGE_NAME: gateway
-      run: VERSION="./gradlew version -q"
+      run: echo "hello world"
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
