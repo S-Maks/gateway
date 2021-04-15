@@ -12,6 +12,7 @@ jobs:
     env:
       USERNAME: smaks
       IMAGE_NAME: gateway
+      run: VERSION="./gradlew version -q"
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
@@ -35,7 +36,6 @@ jobs:
           password: '${{secrets.DOCKERHUB_PASSWORD}}'
       - name: Build and push
         id: docker_build
-        run: echo "Hello world"
         uses: docker/build-push-action@v2
         with:
           context: .
