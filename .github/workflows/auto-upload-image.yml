@@ -40,5 +40,4 @@ jobs:
         with:
           context: .
           push: true
-          repository: "${{env.USERNAME}}/${{env.IMAGE_NAME}}:"
-          tags: "0.0.1"
+          tags: "${{env.USERNAME}}/${{env.IMAGE_NAME}}:0.0.1"
