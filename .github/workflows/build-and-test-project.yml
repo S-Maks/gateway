@@ -4,7 +4,8 @@
 name: Java CI with Gradle
 
 on:
-  push:
+  repository_dispatch:
+    types: [commited]
 
 jobs:
   build:
