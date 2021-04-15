@@ -26,7 +26,7 @@ jobs:
       - name: Build with Gradle
         run: ./gradlew build
       - name: Version
-        run: echo "$VERSION"
+        run: echo "${VERSION}"
       - name: Login to DockerHub
         uses: docker/login-action@v1
         with:
