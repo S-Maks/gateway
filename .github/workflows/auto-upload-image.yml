@@ -35,7 +35,8 @@ jobs:
           password: '${{secrets.DOCKERHUB_PASSWORD}}'
       - name: Build and push
         id: docker_build
-        uses: VERSION=$(./gradlew version -q); docker/build-push-action@v2
+        uses: docker/build-push-action@v2
+        run: VERSION=$(./gradlew version -q)
         with:
           context: .
           push: true
