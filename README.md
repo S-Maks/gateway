@@ -19,6 +19,7 @@ In the console (terminal), you need to run the command: ```docker build -t gatew
 - `gateway` — The name of our image.
 - `.` — The path to the directory where we are looking for **Dockerfile**(in our case, this is the current directory where we are located).
 
+
 Our image is ready. You can run the command `docker images` and see your image
 
 3. All that remains is to run the image. You can do this with the following command: `docker run gateway`.
