@@ -3,7 +3,9 @@
 
 name: Java CI with Gradle
 
-on: issue_comment
+on: 
+  issue_comment:
+    branches: [ main ]
 
 jobs:
   build:
