@@ -3,7 +3,9 @@
 
 name: Java CI with Gradle
 
-on: [push]
+on: 
+  push:
+    types: [commited]
 
 jobs:
   build:
