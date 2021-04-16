@@ -5,7 +5,9 @@ name: Java CI with Gradle
 
 on: 
   push:
-    types: [commited]
+    branches: 
+    - '*'
+    - '!main'
 
 jobs:
   build:
