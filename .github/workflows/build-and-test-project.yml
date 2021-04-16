@@ -3,8 +3,7 @@
 
 name: Java CI with Gradle
 
-on:
-  commit_comment:
+on: issue_comment
 
 jobs:
   build:
