@@ -25,7 +25,7 @@ jobs:
       - name: Build with Gradle
         run: ./gradlew build
       - name: get Version
-        run: VERSION=$(./gradlew version -q)>>$GITHUB_ENV
+        run: echo "VERSION=$(./gradlew version -q)">>$GITHUB_ENV
       - name: show Version
         run: echo ${{ env.VERSION }}
       - name: Login to DockerHub
