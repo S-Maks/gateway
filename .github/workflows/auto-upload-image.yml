@@ -1,7 +1,7 @@
 # This workflow will build a Java project with Gradle
 # For more information see: https://help.github.com/actions/language-and-framework-guides/building-and-testing-java-with-gradle
 
-name: Java-CI-for-auto-upload-docker-image
+name: Auto upload docker image
 
 on:
   push:
@@ -22,17 +22,19 @@ jobs:
           distribution: 'adopt'
       - name: Grant execute permission for gradlew
         run: chmod +x gradlew
-      - name: Build with Gradle
+      - name: Build project
         run: ./gradlew build
+      - name: Set project version
+        run: echo "VERSION=$(./gradlew version -q)">>$GITHUB_ENV
       - name: Login to DockerHub
         uses: docker/login-action@v1
         with:
-          username: $USERNAME
-          password: ${{secrets.DOCKERHUB_PASSWORD}}
-
-      - name: Build and push
+          username: ${{env.USERNAME}}
+          password: '${{secrets.DOCKERHUB_PASSWORD}}'
+      - name: Build and push project
         id: docker_build
         uses: docker/build-push-action@v2
         with:
+          context: .
           push: true
-          tags: $USERNAME/$IMAGE_NAME:$(./gradlew version -q)
+          tags: "${{env.USERNAME}}/${{env.IMAGE_NAME}}:${{env.VERSION}}"
