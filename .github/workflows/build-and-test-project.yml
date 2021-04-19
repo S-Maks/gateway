@@ -3,10 +3,11 @@
 
 name: Java CI with Gradle
 
-on: [push, pull_request]
-  #push:
-   # branches:
-    #- '*'
+on:
+  push:
+    branches:
+    - 'fix/*'
+    - 'main'
 
 jobs:
   build:
