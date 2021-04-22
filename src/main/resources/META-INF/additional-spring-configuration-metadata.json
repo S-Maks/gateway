@@ -1,7 +1,7 @@
 {
   "properties": [
     {
-      "name": "clickhouse.url",
+      "name": "dbclickhouse.url",
       "type": "java.lang.String",
       "description": "Clickhouse rest api address. Will be used by CH jdbc driver."
     }
