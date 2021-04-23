@@ -11,14 +11,14 @@ import org.springframework.context.annotation.Configuration;
 public class ClickhouseConfig {
 
     @Bean
-    @ConfigurationProperties(prefix = "dbclickhouse")
+    @ConfigurationProperties(prefix = "db.clickhouse")
     public ClickHouseProperties clickHouseProperties() {
         return new ClickHouseProperties();
     }
 
     @Bean
     public BalancedClickhouseDataSource chDataSource(
-            @Value("${dbclickhouse.url}") String url,
+            @Value("${db.clickhouse.url}") String url,
             ClickHouseProperties properties
     ) {
         return new BalancedClickhouseDataSource(url, properties);
